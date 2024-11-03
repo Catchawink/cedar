@@ -16,6 +16,10 @@
 
 fn main() {
     generate_parsers();
+    println!("cargo::rustc-check-cfg=cfg(host_windows)");
+    if cfg!(target_os = "windows") {
+        println!("cargo:rustc-cfg=host_windows");
+    } 
 }
 
 /// Reads parser grammar files (.lalrpop) and generates Rust modules

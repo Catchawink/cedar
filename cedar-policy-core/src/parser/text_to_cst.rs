@@ -17,7 +17,7 @@
 //! This module contains step one of the parser for the Cedar language.
 //! It converts text to a CST
 
-#[cfg(not(feature = "path_fix"))]
+#[cfg(not(host_windows))]
 lalrpop_mod!(
     #[allow(warnings, unused)]
     //PANIC SAFETY: lalrpop uses unwraps, and we are trusting lalrpop to generate correct code
@@ -32,7 +32,7 @@ lalrpop_mod!(
     "/src/parser/grammar.rs"
 );
 
-#[cfg(feature = "path_fix")]
+#[cfg(host_windows)]
 lalrpop_mod!(
     #[allow(warnings, unused)]
     //PANIC SAFETY: lalrpop uses unwraps, and we are trusting lalrpop to generate correct code

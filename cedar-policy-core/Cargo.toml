@@ -37,6 +37,7 @@ regex = { version = "1.8", features = ["unicode"], optional = true }
 default = ["ipaddr", "decimal"]
 ipaddr = ["dep:ipnet"]
 decimal = ["dep:regex"]
+path_fix = []
 
 # Enables `Arbitrary` implementations for several types in this crate
 arbitrary = ["dep:arbitrary"]

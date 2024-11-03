@@ -17,6 +17,7 @@
 //! This module contains step one of the parser for the Cedar language.
 //! It converts text to a CST
 
+#[cfg(not(feature = "path_fix"))]
 lalrpop_mod!(
     #[allow(warnings, unused)]
     //PANIC SAFETY: lalrpop uses unwraps, and we are trusting lalrpop to generate correct code
@@ -29,6 +30,21 @@ lalrpop_mod!(
     #[allow(clippy::panic)]
     pub grammar,
     "/src/parser/grammar.rs"
+);
+
+#[cfg(feature = "path_fix")]
+lalrpop_mod!(
+    #[allow(warnings, unused)]
+    //PANIC SAFETY: lalrpop uses unwraps, and we are trusting lalrpop to generate correct code
+    #[allow(clippy::unwrap_used)]
+    //PANIC SAFETY: lalrpop uses slicing, and we are trusting lalrpop to generate correct code
+    #[allow(clippy::indexing_slicing)]
+    //PANIC SAFETY: lalrpop uses unreachable, and we are trusting lalrpop to generate correct code
+    #[allow(clippy::unreachable)]
+    //PANIC SAFETY: lalrpop uses panic, and we are trusting lalrpop to generate correct code
+    #[allow(clippy::panic)]
+    pub grammar,
+    "\\src\\parser\\grammar.rs"
 );
 
 use lazy_static::lazy_static;

@@ -42,6 +42,7 @@ wasm-bindgen = { version = "0.2.82", optional = true }
 default = ["ipaddr", "decimal"]
 ipaddr = []
 decimal = ["dep:regex"]
+path_fix = []
 
 # Enables `Arbitrary` implementations for several types in this crate
 arbitrary = ["dep:arbitrary"]
